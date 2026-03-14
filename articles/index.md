@@ -2,5 +2,5 @@
 
 ### All vignettes
 
-- [UNKNOWN
-  TITLE](https://Jonnboi13.github.io/regexpert/articles/getting-started.md):
+- [Getting Started with
+  regexpert](https://Jonnboi13.github.io/regexpert/articles/getting-started.md):

@@ -1,103 +1,103 @@
-# 
+# Getting Started with regexpert
 
-    ---
-    title: "Getting Started with regexpert"
-    output: rmarkdown::html_vignette
-    vignette: >
-      %\VignetteIndexEntry{Getting Started with regexpert}
-      %\VignetteEngine{knitr::rmarkdown}
-      %\VignetteEncoding{UTF-8}
-    ---
+## The Problem with Regular Expressions
 
+If you’ve ever needed to extract a phone number or pull out specific
+text in R, you’ve probably run into something like this:
 
-    ## The Problem with Regular Expressions
+``` r
+stringr::str_extract_all("Call us at 800-555-1234", "\\d+")
+```
 
-    If you've ever needed to extract a phone number or pull out specific text in R, you've probably run into something like this:
+That `"\\d+"` is a regular expression. It works — but what does it
+*mean*? For anyone who doesn’t have regex memorized, this is a wall. You
+have to stop what you’re doing, look up the syntax, and hope you get the
+escaping right.
 
-    ``` r
-    stringr::str_extract_all("Call us at 800-555-1234", "\\d+")
-    ```
+This is the problem `regexpert` solves.
 
-    That `"\\d+"` is a regular expression. It works — but what does it *mean*? For anyone who doesn't have regex memorized, this is a wall. You have to stop what you're doing, look up the syntax, and hope you get the escaping right.
+## The Build → Act Workflow
 
-    This is the problem `regexpert` solves.
+`regexpert` breaks pattern matching into two plain-English steps:
 
-    ## The Build → Act Workflow
+1.  **Build** your pattern using a descriptive `xp_build_*` function.
+2.  **Act** on it using
+    [`xp_find()`](https://Jonnboi13.github.io/regexpert/reference/xp_find.md)
+    to return matches.
 
-    `regexpert` breaks pattern matching into two plain-English steps:
+These steps are connected with the pipe (`%>%` or `|>`), so your code
+reads like a sentence:
 
-    1. **Build** your pattern using a descriptive `xp_build_*` function.
-    2. **Act** on it using `xp_find()` to return matches.
+``` r
+"Call us at 800-555-1234" %>%
+  xp_build_digits() %>%
+  xp_find()
+#> [1] "800" "555" "1234"
+```
 
-    These steps are connected with the pipe (`%>%` or `|>`), so your code reads like a sentence:
+No regex required. You described what you wanted in plain English, and
+`regexpert` handled the rest.
 
-    ``` r
-    "Call us at 800-555-1234" %>%
-      xp_build_digits() %>%
-      xp_find()
-    #> [1] "800" "555" "1234"
-    ```
+## The Builders
 
-    No regex required. You described what you wanted in plain English, and `regexpert` handled the rest.
+### `xp_build_digits()`
 
-    ## The Builders
+Matches any numeric character (0–9).
 
-    ### `xp_build_digits()`
+``` r
+"Order #88412 placed on 2024-01-15" %>%
+  xp_build_digits() %>%
+  xp_find()
+#> [1] "88412" "2024" "01" "15"
+```
 
-    Matches any numeric character (0–9).
+Use `negate = TRUE` to find everything *except* digits:
 
-    ``` r
-    "Order #88412 placed on 2024-01-15" %>%
-      xp_build_digits() %>%
-      xp_find()
-    #> [1] "88412" "2024" "01" "15"
-    ```
+``` r
+"Price: $100!" %>%
+  xp_build_digits(negate = TRUE) %>%
+  xp_find()
+#> [1] "Price: $" "!"
+```
 
-    Use `negate = TRUE` to find everything *except* digits:
+### `xp_build_letters()`
 
-    ``` r
-    "Price: $100!" %>%
-      xp_build_digits(negate = TRUE) %>%
-      xp_find()
-    #> [1] "Price: $" "!"
-    ```
+Matches any alphabetic character (a–z, A–Z).
 
-    ### `xp_build_letters()`
+``` r
+"Order #88412 placed" %>%
+  xp_build_letters() %>%
+  xp_find()
+#> [1] "Order" "placed"
+```
 
-    Matches any alphabetic character (a–z, A–Z).
+Use `negate = TRUE` to find everything *except* letters:
 
-    ``` r
-    "Order #88412 placed" %>%
-      xp_build_letters() %>%
-      xp_find()
-    #> [1] "Order" "placed"
-    ```
+``` r
+"abc123" %>%
+  xp_build_letters(negate = TRUE) %>%
+  xp_find()
+#> [1] "123"
+```
 
-    Use `negate = TRUE` to find everything *except* letters:
+### `xp_build_whitespace()`
 
-    ``` r
-    "abc123" %>%
-      xp_build_letters(negate = TRUE) %>%
-      xp_find()
-    #> [1] "123"
-    ```
+Matches spaces, tabs, and newlines.
 
-    ### `xp_build_whitespace()`
+``` r
+"hello   world" %>%
+  xp_build_whitespace() %>%
+  xp_find()
+#> [1] " " " " " "
+```
 
-    Matches spaces, tabs, and newlines.
+Use `negate = TRUE` to find everything *except* whitespace:
 
-    ``` r
-    "hello   world" %>%
-      xp_build_whitespace() %>%
-      xp_find()
-    #> [1] " " " " " "
-    ```
+``` r
+"hello   world" %>%
+  xp_build_whitespace(negate = TRUE) %>%
+  xp_find()
+#> [1] "hello" "world"
+```
 
-    Use `negate = TRUE` to find everything *except* whitespace:
-
-    ``` r
-    "hello   world" %>%
-      xp_build_whitespace(negate = TRUE) %>%
-      xp_find()
-    #> [1] "hello" "world"
-    ```
+\`\`\`\`
