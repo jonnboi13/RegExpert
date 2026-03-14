@@ -1,0 +1,23 @@
+<svg width="100%" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg"><defs><mask id="imagine-text-gaps-i48hll" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="400" height="460" fill="white"/><rect x="82.00077819824219" y="174.4853057861328" width="235.9984588623047" height="21.02937126159668" fill="black" rx="2"/><rect x="88.92782592773438" y="200.2667236328125" width="222.14434814453125" height="55.46654510498047" fill="black" rx="2"/><rect x="144.29693603515625" y="265.052978515625" width="111.4061279296875" height="19.89408016204834" fill="black" rx="2"/></mask></defs>
+
+  <!-- Hex background -->
+  <polygon points="200,20 370,110 370,350 200,440 30,350 30,110" fill="#1a3a5c" style="fill:rgb(26, 58, 92);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Subtle inner hex ring -->
+  <polygon points="200,36 356,118 356,342 200,424 44,342 44,118" fill="none" stroke="#2e5f8a" stroke-width="1.5" opacity="0.5" style="fill:none;stroke:rgb(46, 95, 138);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Faint regex pattern underline/backdrop text -->
+  <text font-family="'Courier New', monospace" font-size="15" font-weight="400" fill="#5ba3d9" x="200" y="185" text-anchor="middle" dominant-baseline="central" opacity="0.4" letter-spacing="3" style="fill:rgb(91, 163, 217);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Courier New&quot;, monospace;font-size:15px;font-weight:400;text-anchor:middle;dominant-baseline:central">^ . * + ? [ ] ( ) $</text>
+
+  <!-- Main package name -->
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff" x="200" y="228" text-anchor="middle" dominant-baseline="central" letter-spacing="0.5" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:46px;font-weight:700;text-anchor:middle;dominant-baseline:central">regexpert</text>
+
+  <!-- Subtle underline -->
+  <line x1="90" y1="252" x2="310" y2="252" stroke="#5ba3d9" stroke-width="1.5" opacity="0.5" mask="url(#imagine-text-gaps-i48hll)" style="fill:rgb(0, 0, 0);stroke:rgb(91, 163, 217);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Tagline -->
+  <text font-family="'Courier New', monospace" font-size="14" font-weight="400" fill="#5ba3d9" x="200" y="275" text-anchor="middle" dominant-baseline="central" opacity="0.7" letter-spacing="1" style="fill:rgb(91, 163, 217);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Courier New&quot;, monospace;font-size:14px;font-weight:400;text-anchor:middle;dominant-baseline:central">regex for R</text>
+
+  <!-- Hex border -->
+  <polygon points="200,20 370,110 370,350 200,440 30,350 30,110" fill="none" stroke="#2e5f8a" stroke-width="3" style="fill:none;stroke:rgb(46, 95, 138);color:rgb(255, 255, 255);stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</svg>

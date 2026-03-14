@@ -13,6 +13,7 @@
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Toolkit for Human-Readable and Expert Regular Expressions">
 <meta name="description" content="Simplifies the creation and management of regular expressions through a human-readable domain-specific language. regexpert provides intuitive tools for building patterns, explaining complex regex logic, and integrating seamlessly with tidyverse workflows.">
 <meta property="og:description" content="Simplifies the creation and management of regular expressions through a human-readable domain-specific language. regexpert provides intuitive tools for building patterns, explaining complex regex logic, and integrating seamlessly with tidyverse workflows.">
+<meta property="og:image" content="https://Jonnboi13.github.io/regexpert/logo.svg">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -32,6 +33,12 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="articles/getting-started.html">UNKNOWN TITLE</a></li>
+  </ul>
+</li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -46,118 +53,66 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="template-repo-for-building-an-r-package">Template Repo for building an R package<a class="anchor" aria-label="anchor" href="#template-repo-for-building-an-r-package"></a>
-</h1></div>
-<ul>
-<li><a href="https://usethis.r-lib.org/" class="external-link">usethis</a></li>
-<li><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></li>
-<li>
-<a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> (requires <a href="https://github.com/jgm/pandoc/releases/tag/3.8.3" class="external-link">pandoc to be installed</a>)</li>
-</ul>
+<div class="page-header">
+<img src="logo.svg" class="logo" alt=""><h1 id="regexpert-">regexpert <a class="anchor" aria-label="anchor" href="#regexpert-"></a>
+</h1>
+</div>
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a> <a href="https://github.com/Jonnboi13/regexpert/actions" class="external-link"><img src="https://github.com/Jonnboi13/regexpert/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://Jonnboi13.github.io/regexpert/"><img src="https://img.shields.io/badge/docs-pkgdown-blue.svg" alt="Documentation"></a></p>
+<p>The goal of <strong>regexpert</strong> is to make regular expressions in R less of a headache. It provides a pipe-friendly, human-readable DSL for building and executing regex patterns — no symbol memorization required.</p>
 <div class="section level2">
-<h2 id="r-package-structure">R Package Structure<a class="anchor" aria-label="anchor" href="#r-package-structure"></a>
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Below are the folders and files that are often found in an R package.</p>
-<table style="width:100%;" class="table">
-<colgroup>
-<col width="40%">
-<col width="22%">
-<col width="22%">
-<col width="14%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">Description</th>
-<th align="left">Source</th>
-<th align="left">Bundle</th>
-<th align="left">Binary</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><strong>Important Metadata</strong></td>
-<td align="left">DESCRIPTION, NAMESPACE, LICENSE, NEWS.md</td>
-<td align="left">DESCRIPTION, NAMESPACE, LICENSE, NEWS.md</td>
-<td align="left">DESCRIPTION, NAMESPACE, LICENSE, NEWS.md</td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Documentation</strong></td>
-<td align="left">README.Rmd <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math> README.md</td>
-<td align="left">README.md</td>
-<td align="left"><em>(Not included)</em></td>
-</tr>
-<tr class="odd">
-<td align="left"><strong>Data Directory</strong></td>
-<td align="left">
-<code>data/</code> (aa.rda, bb.rda)</td>
-<td align="left">
-<code>data/</code> (aaa.rda, bbb.rda)</td>
-<td align="left">
-<code>data/</code> (Rdata.rdb, Rdata.rds, Rdata.rdx)</td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Help Files</strong></td>
-<td align="left"><code>man/</code></td>
-<td align="left"><code>man/</code></td>
-<td align="left">INDEX, Meta/, help/, html/</td>
-</tr>
-<tr class="odd">
-<td align="left"><strong>R Code</strong></td>
-<td align="left">
-<code>R/</code> (ccc.R, ddd.R, sysdata.rda)</td>
-<td align="left">
-<code>R/</code> (ccc.R, ddd.R, sysdata.rda)</td>
-<td align="left">
-<code>R/</code> (zzzpackage, zzzpackage.rdb, zzzpackage.rdx, sysdata.rdb, sysdata.rdx)</td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Compiled Code</strong></td>
-<td align="left"><code>src/</code></td>
-<td align="left"><code>src/</code></td>
-<td align="left"><code>libs/</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><strong>Tests</strong></td>
-<td align="left"><code>tests/</code></td>
-<td align="left"><code>tests/</code></td>
-<td align="left"><em>(Not included)</em></td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Installed Files</strong></td>
-<td align="left">
-<code>inst/</code> (eee-file, fff-folder/, CITATION)</td>
-<td align="left">
-<code>inst/</code> (eee-file, fff-folder/, CITATION)</td>
-<td align="left">eee-file, fff-folder/, CITATION (moved to top-level)</td>
-</tr>
-<tr class="odd">
-<td align="left"><strong>Vignettes &amp; Articles</strong></td>
-<td align="left">
-<code>vignettes/</code>, <code>articles/</code> (ggg-article.Rmd, hhh-vignette.Rmd)</td>
-<td align="left">
-<code>build/vignette.rds</code>, <code>inst/doc/</code>, <code>vignettes/</code> (hhh-vignette.Rmd)</td>
-<td align="left">
-<code>doc/</code> (hhh-vignette.R, hhh-vignette.Rmd, hhh-vignette.html, index.html)</td>
-</tr>
-<tr class="even">
-<td align="left"><strong>Dev/Config Files</strong></td>
-<td align="left">.github/, .gitignore, .Rbuildignore, _pkgdown.yml, etc.</td>
-<td align="left"><em>(Not included)</em></td>
-<td align="left"><em>(Not included)</em></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><a href="https://r-pkgs.org/structure.html" class="external-link">R Packages (2e): Package structure and state</a></li>
-</ul>
+<p>You can install the development version of regexpert from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Jonnboi13/regexpert"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="building-a-package-website">Building a package website<a class="anchor" aria-label="anchor" href="#building-a-package-website"></a>
+<h2 id="why-regexpert">Why regexpert?<a class="anchor" aria-label="anchor" href="#why-regexpert"></a>
 </h2>
+<p>Standard regular expressions are powerful but often unreadable. <code>regexpert</code> breaks the process into two logical steps:</p>
 <ol style="list-style-type: decimal">
 <li>
-<code>devtools::document()</code> will create the documentation for your exported functions in your <code>/R</code> folder files.</li>
+<strong>Build:</strong> Describe what you’re looking for using plain-English functions like <code><a href="reference/xp_build_digits.html">xp_build_digits()</a></code>.</li>
 <li>
-<code><a href="https://pkgdown.r-lib.org/reference/build_site_github_pages.html" class="external-link">pkgdown::build_site_github_pages()</a></code> will create your <code>/docs</code> folder that can be used in Github for your Github pages website.</li>
+<strong>Act:</strong> Use <code><a href="reference/xp_find.html">xp_find()</a></code> to return matches, or <code><a href="reference/xp_view.html">xp_view()</a></code> to inspect the raw regex being generated.</li>
 </ol>
+</div>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<p>The <code>regexpert</code> workflow is designed to be used with the pipe (<code>%&gt;%</code> or <code>|&gt;</code>):</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://Jonnboi13.github.io/regexpert">regexpert</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Find digits in a string</span></span>
+<span><span class="st">"Order #88412 placed"</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/xp_build_digits.html">xp_build_digits</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/xp_find.html">xp_find</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "88412"</span></span>
+<span></span>
+<span><span class="co"># Find only the letters</span></span>
+<span><span class="st">"Order #88412 placed"</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/xp_build_letters.html">xp_build_letters</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/xp_find.html">xp_find</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Order" "placed"</span></span>
+<span></span>
+<span><span class="co"># Negate a pattern — find everything that isn't whitespace</span></span>
+<span><span class="st">"hello world"</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/xp_build_whitespace.html">xp_build_whitespace</a></span><span class="op">(</span>negate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/xp_find.html">xp_find</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "hello" "world"</span></span>
+<span></span>
+<span><span class="co"># Use xp_view() to inspect the regex your builder creates</span></span>
+<span><span class="fu"><a href="reference/xp_build_digits.html">xp_build_digits</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/xp_view.html">xp_view</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "[\\d]"</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
+<p>Full documentation, including function references and vignettes, is available at <a href="https://Jonnboi13.github.io/regexpert/" class="uri">https://Jonnboi13.github.io/regexpert/</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
